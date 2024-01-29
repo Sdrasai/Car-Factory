@@ -1,21 +1,18 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-require("./db");
-const mongoose_1 = __importDefault(require("mongoose"));
-const car_model_1 = __importDefault(require("./car.model"));
-car_model_1.default.find({})
-    .then((cars) => {
+import "./db";
+import mongoose from "mongoose";
+import SedanModel from "./car.model";
+
+SedanModel.find({})
+  .then((cars) => {
     console.log("All cars:", cars);
-})
-    .catch((error) => {
+  })
+  .catch((error) => {
     console.error("Error retrieving cars:", error);
-})
-    .finally(() => {
-    mongoose_1.default.disconnect();
-});
+  })
+  .finally(() => {
+    mongoose.disconnect();
+  });
+
 /* output ==> Connected to db..
 All cars: [
   {

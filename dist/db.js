@@ -13,22 +13,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
-const car_model_1 = __importDefault(require("./car.model"));
 (function main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             yield mongoose_1.default.connect("mongodb://127.0.0.1:27017/Car_Factory");
             console.log("Connected to db..");
-            car_model_1.default.find({})
-                .then((cars) => {
-                console.log("All cars:", cars);
-            })
-                .catch((error) => {
-                console.error("Error retrieving cars:", error);
-            })
-                .finally(() => {
-                mongoose_1.default.disconnect();
-            });
         }
         catch (err) {
             console.log(err);
