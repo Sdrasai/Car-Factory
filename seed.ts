@@ -1,15 +1,18 @@
 import "./db";
-import Car from "./car.model";
 import mongoose from "mongoose";
+import SedanModel from "./car.model";
 
-const newCar = new Car({
-  vinNumber: 1234567,
+const newSedan = new SedanModel({
+  vinNumber: 11223344,
+  model: "Prado",
   year: 2023,
-  model: "BMW M5",
-  price: 120000,
+  price: 100000,
+  consumptionPerOneHundredKM: 10,
+  zeroToOneHundred: 10,
+  color: "white",
 });
 
-newCar
+newSedan
   .save()
   .then(() => {
     console.log("Saved!");

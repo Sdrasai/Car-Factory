@@ -30,14 +30,3 @@ class Bus extends Car {
         this.dimension = dimension;
     }
 }
-// const bmw = new Sedan(
-//   2.9,
-//   7,
-//   12345678,
-//   2023,
-//   "M5 Competition",
-//   120000,
-//   24,
-//   "Green"
-// );
-// console.log(bmw);

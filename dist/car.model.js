@@ -25,10 +25,18 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
 const carSchema = new mongoose_1.Schema({
-    vinNumber: { type: Number },
-    year: { type: Number },
-    model: { type: String },
-    price: { type: Number },
+    vinNumber: { type: Number, required: true },
+    year: { type: Number, required: true },
+    model: { type: String, required: true },
+    price: { type: Number, required: true },
 });
-const carModel = mongoose_1.default.model("Car", carSchema);
-exports.default = carModel;
+const sedanSchema = new mongoose_1.Schema({
+    zeroToOneHundred: { type: Number, required: true },
+    consumptionPerOneHundredKM: { type: Number, required: true },
+    tireSize: { type: Number },
+    color: { type: String },
+});
+const SedanModel = mongoose_1.default.model("Sedan", sedanSchema);
+// const CarModel = mongoose.model<ICar & Document>("Car", carSchema);
+exports.default = SedanModel;
+// module.exports = CarModel;
