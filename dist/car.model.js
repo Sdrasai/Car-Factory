@@ -23,6 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SedanModel = exports.BusModel = exports.TractorModel = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
 const carSchema = new mongoose_1.Schema({
     vinNumber: { type: Number, required: true },
@@ -31,12 +32,34 @@ const carSchema = new mongoose_1.Schema({
     price: { type: Number, required: true },
 });
 const sedanSchema = new mongoose_1.Schema({
+    vinNumber: { type: Number, required: true },
+    year: { type: Number, required: true },
+    model: { type: String, required: true },
+    price: { type: Number, required: true },
     zeroToOneHundred: { type: Number, required: true },
     consumptionPerOneHundredKM: { type: Number, required: true },
     tireSize: { type: Number },
     color: { type: String },
 });
-const SedanModel = mongoose_1.default.model("Sedan", sedanSchema);
+const busSchema = new mongoose_1.Schema({
+    vinNumber: { type: Number, required: true },
+    year: { type: Number, required: true },
+    model: { type: String, required: true },
+    price: { type: Number, required: true },
+    passengers: { type: Number, require: true },
+    dimension: { type: String },
+});
+const tractorSchema = new mongoose_1.Schema({
+    vinNumber: { type: Number, required: true },
+    year: { type: Number, required: true },
+    model: { type: String, required: true },
+    price: { type: Number, required: true },
+    power: { type: String, required: true },
+    tools: { type: String },
+});
+exports.TractorModel = mongoose_1.default.model("Tractor", tractorSchema);
+exports.BusModel = mongoose_1.default.model("Bus", busSchema);
+exports.SedanModel = mongoose_1.default.model("Sedan", sedanSchema);
 // const CarModel = mongoose.model<ICar & Document>("Car", carSchema);
-exports.default = SedanModel;
+// export default SedanModel;
 // module.exports = CarModel;

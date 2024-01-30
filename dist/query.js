@@ -5,8 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./db");
 const mongoose_1 = __importDefault(require("mongoose"));
-const car_model_1 = __importDefault(require("./car.model"));
-car_model_1.default.find({})
+const car_model_1 = require("./car.model");
+car_model_1.BusModel.find({})
     .then((cars) => {
     console.log("All cars:", cars);
 })
